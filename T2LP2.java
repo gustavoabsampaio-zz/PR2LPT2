@@ -5,30 +5,35 @@ import java.util.Random;
 
 class T2LP2 implements ActionListener{
 	JFrame frame;
+	MyDrawPanel drawPanel;
 	public static void main(String[] args) {
 		T2LP2 prata = new T2LP2();
 		prata.go();
 	}
 	public void go(){
 		frame=new JFrame();
+		drawPanel=new MyDrawPanel();
+		
 		JPanel p1=new JPanel();
 		JButton b1 = new JButton("Gustavo");
 		JButton b2 = new JButton("Sampaio");
 		JButton b3 = new JButton("ERRAR!");
-		MyDrawPanel drawPanel = new MyDrawPanel();
 		b1.addActionListener(this);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(800,600);
 		frame.setVisible(true);
 		frame.getContentPane().add(p1,BorderLayout.EAST);
-		frame.getContentPane().add(drawPanel,BorderLayout.WEST);
 		p1.add(b1);
 		p1.add(b2);
 		p1.add(b3);
+		frame.getContentPane().add(drawPanel,BorderLayout.CENTER);
+
 	}
 	public void actionPerformed(ActionEvent event)
 	{
 		frame.repaint();
+
+
 	}
 	class MyDrawPanel extends JPanel
 	{
